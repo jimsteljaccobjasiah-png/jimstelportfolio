@@ -62,8 +62,8 @@ const WhatIDo = () => {
       id: "01",
       title: "FULL-STACK",
       sub: "ARCHITECT",
-      desc: "Architecting high-availability systems where performance meets scale. I build the backbone of modern digital ecosystems using robust, distributed infrastructures.",
-      tech: ["MICROSERVICES", "KUBERNETES", "DISTRIBUTED_DB"],
+      desc: "Creating complete web experiences from responsive frontends to robust backend systems.",
+      tech: ["MICROSERVICES", "DJANGO", "DISTRIBUTED_DB"],
       img: "https://images.unsplash.com/photo-1639322537228-f710d846310a?q=80&w=2000"
     },
     {

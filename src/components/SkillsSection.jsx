@@ -95,7 +95,7 @@ const TechStack = () => {
       <div className="absolute top-0 left-0 w-full pt-16 md:pt-24 z-50 pointer-events-none">
         <div className="container mx-auto px-10 md:px-24">
           <h2 className="text-blue-500 font-['Space_Mono'] text-[10px] md:text-xs tracking-[0.7em] mb-4 uppercase font-bold opacity-80">
-            // 03. TECH_ENERGY_CORE
+            // 04. THE_SKILLS
           </h2>
           <h1 className="text-5xl md:text-[7rem] font-black text-white tracking-tighter uppercase italic leading-[0.75] opacity-90 drop-shadow-[0_0_30px_rgba(255,255,255,0.1)]">
             TECH STACK

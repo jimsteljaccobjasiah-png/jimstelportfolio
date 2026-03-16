@@ -113,7 +113,8 @@ const Projects = () => {
 
       <div ref={headerGroupRef} className="absolute top-10 left-10 md:top-20 md:left-24 z-50 pointer-events-none will-change-transform text-left">
         <h2 className="text-blue-500 font-['Space_Mono'] text-[9px] md:text-[11px] tracking-[0.8em] mb-2 uppercase opacity-40 font-bold">
-          // SECTION_04.MISSION_ARCHIVE
+          // 03. THE_PROJECTS
+
         </h2>
         <h1 className="text-4xl md:text-7xl lg:text-[7rem] font-black text-white tracking-tighter uppercase italic leading-[0.8] drop-shadow-2xl">
           Featured<br/>Projects
