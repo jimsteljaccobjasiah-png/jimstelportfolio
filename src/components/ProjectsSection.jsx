@@ -15,7 +15,7 @@ const Projects = () => {
 
   const projectList = [
     { 
-      title: "ADV_SIP_CALC", 
+      title: "SIP_CALCULATOR", 
       cat: "FINANCIAL_UI_ENGINEERING", 
       tech: "JS_CORE // CHART.JS // TAILWIND", 
       img: "/projects/sip-calculator.png" 
@@ -28,7 +28,7 @@ const Projects = () => {
     },
     { 
       /* MACHA: DROWSINESS DETECTION REPLACES FACE REC DA! */
-      title: "DROWSY_GUARD_AI", 
+      title: "DROWSY_DETECT_AI", 
       cat: "REAL_TIME_SAFETY_MONITORING", 
       tech: "PYTHON // OPENCV // DJANGO // NUMPY", 
       img: "/projects/drowsiness-detection.png" // Use a screenshot of the EAR landmarks da!
@@ -116,7 +116,7 @@ const Projects = () => {
           // SECTION_04.MISSION_ARCHIVE
         </h2>
         <h1 className="text-4xl md:text-7xl lg:text-[7rem] font-black text-white tracking-tighter uppercase italic leading-[0.8] drop-shadow-2xl">
-          HARDWARE<br/>INTERFACE
+          Featured<br/>Projects
         </h1>
       </div>
 
