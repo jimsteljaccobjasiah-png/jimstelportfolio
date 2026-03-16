@@ -104,7 +104,7 @@ const TechStack = () => {
       </div>
 
       {/* 3D WHEEL Container: Shifted down (mt-20) to avoid title overlap */}
-      <div className="relative w-full h-full flex items-center justify-center mt-32 md:mt-40" style={{ perspective: "2000px" }}>
+      <div className="relative w-full h-full flex items-center justify-center mt-32 md:mt-40" style={{ perspective: "2700px" }}>
         <div
           ref={wheelRef}
           className="relative w-[280px] h-[380px] md:w-[380px] md:h-[500px] flex items-center justify-center"
