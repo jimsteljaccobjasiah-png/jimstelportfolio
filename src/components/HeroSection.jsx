@@ -12,7 +12,6 @@ const HeroSection = () => {
   const contentRef = useRef(null);
 
   useEffect(() => {
-    // 1. Force ScrollTrigger to refresh correctly on mobile resize (address bar hide/show)
     ScrollTrigger.config({ ignoreMobileResize: true });
 
     let ctx = gsap.context(() => {
@@ -24,13 +23,11 @@ const HeroSection = () => {
           trigger: sectionRef.current,
           start: 'top top',
           end: 'bottom top',
-          scrub: 1.5, // Slightly reduced for mobile responsiveness
+          scrub: 1.5,
           pin: true,
           anticipatePin: 1,
-          // CRITICAL: Prevent flickering on mobile
           fastScrollEnd: true, 
           preventOverlaps: true,
-          // Use 'transform' instead of 'fixed' for pinning on mobile if needed
           pinType: 'fixed', 
         },
       });
@@ -65,9 +62,6 @@ const HeroSection = () => {
       ref={sectionRef} 
       className="relative w-full overflow-hidden bg-black text-white min-h-[100dvh]" 
     >
-      {/* Using min-h-[100dvh] (Dynamic Viewport Height) 
-          to prevent the layout from jumping when the mobile UI hides
-      */}
       <div ref={imageRef} className="absolute inset-0 z-0 h-[100dvh] w-full will-change-opacity">
         <img 
           src={heroImage} 
@@ -93,11 +87,31 @@ const HeroSection = () => {
         </div>
       </div>
       
+      {/* SOCIAL LINKS INTEGRATED DA */}
       <div className="absolute bottom-10 left-1/2 z-20 w-full -translate-x-1/2 px-6">
         <div className="mx-auto flex justify-center gap-10">
-          <a href="#" className="text-neutral-500 hover:text-white transition-all"><Github className="h-6 w-6" /></a>
-          <a href="#" className="text-neutral-500 hover:text-white transition-all"><Linkedin className="h-6 w-6" /></a>
-          <a href="#" className="text-neutral-500 hover:text-white transition-all"><Mail className="h-6 w-6" /></a>
+          <a 
+            href="https://github.com/jimstel" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="text-neutral-500 hover:text-white transition-all"
+          >
+            <Github className="h-6 w-6" />
+          </a>
+          <a 
+            href="https://www.linkedin.com/in/jimstel-jaccob-jasiah-a-b5a464247/" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="text-neutral-500 hover:text-white transition-all"
+          >
+            <Linkedin className="h-6 w-6" />
+          </a>
+          <a 
+            href="mailto:jimsteljaccobjasiah@gmail.com" 
+            className="text-neutral-500 hover:text-white transition-all"
+          >
+            <Mail className="h-6 w-6" />
+          </a>
         </div>
       </div>
     </section>
