@@ -1,17 +1,17 @@
 import React, { useRef, useState } from 'react';
 import { motion, useScroll, useTransform, useSpring, useInView, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Instagram, Linkedin, Github, Mail, CheckCircle2, Zap } from 'lucide-react';
-import emailjs from '@emailjs/browser'; // Macha, remember to run: npm install @emailjs/browser
+import { ArrowRight, Linkedin, Github, Mail, CheckCircle2 } from 'lucide-react';
+import emailjs from '@emailjs/browser'; 
 
 const ContactSection = () => {
   const containerRef = useRef(null);
-  const formRef = useRef(); // <--- Added for EmailJS
+  const formRef = useRef(); 
   const isInView = useInView(containerRef, { amount: 0.1 });
   const [activeInput, setActiveInput] = useState(null);
   const [submitted, setSubmitted] = useState(false);
-  const [loading, setLoading] = useState(false); // <--- Added for UX
+  const [loading, setLoading] = useState(false);
 
-  // 1. Butter-Smooth Scroll Physics - Tuned for Luxury Feel
+  // Butter-Smooth Scroll Physics
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"]
@@ -19,12 +19,17 @@ const ContactSection = () => {
 
   const smoothProgress = useSpring(scrollYProgress, { stiffness: 40, damping: 20 });
 
-  // Parallax Layers
   const textY = useTransform(smoothProgress, [0, 1], [300, -300]);
   const formY = useTransform(smoothProgress, [0, 1], [120, -120]);
   const opacity = useTransform(smoothProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
 
-  // --- THE LIVE MAIL LOGIC DA ---
+  // Social Links Configuration
+  const socialLinks = [
+    { Icon: Linkedin, url: "https://www.linkedin.com/in/jimstel-jaccob-jasiah-a-b5a464247/" },
+    { Icon: Github, url: "https://github.com/jimstel" },
+    { Icon: Mail, url: "mailto:jimsteljaccobjasiah@gmail.com" }
+  ];
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
@@ -33,7 +38,7 @@ const ContactSection = () => {
       import.meta.env.VITE_EMAILJS_SERVICE_ID, 
       import.meta.env.VITE_EMAILJS_TEMPLATE_ID, 
       formRef.current, 
-      import.meta.env.VITE_EMAILJS_PUBLIC_KEY    // Your Public Key (Copy from Account tab)
+      import.meta.env.VITE_EMAILJS_PUBLIC_KEY
     )
     .then((result) => {
         setSubmitted(true);
@@ -52,7 +57,7 @@ const ContactSection = () => {
       className="relative min-h-[140vh] bg-black flex items-center justify-center py-20 md:py-40 px-6 overflow-hidden select-none"
     >
       
-      {/* --- TITAN BACKGROUND TEXT --- */}
+      {/* TITAN BACKGROUND TEXT */}
       <motion.div 
         style={{ y: textY, opacity }}
         className="absolute inset-0 z-0 pointer-events-none flex items-center justify-center"
@@ -65,7 +70,7 @@ const ContactSection = () => {
       <div className="container max-w-[90rem] relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
           
-          {/* LEFT: THE HOOK (FIXED BREAKOUT) */}
+          {/* LEFT: THE HOOK */}
           <div className="lg:col-span-5 relative z-20">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
@@ -95,11 +100,14 @@ const ContactSection = () => {
                 </p>
               </div>
 
+              {/* SOCIAL LINKS UPDATED */}
               <div className="flex gap-8 md:gap-10">
-                {[Linkedin, Github, Instagram, Mail].map((Icon, i) => (
+                {socialLinks.map(({ Icon, url }, i) => (
                   <motion.a
                     key={i}
-                    href="#"
+                    href={url}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     whileHover={{ scale: 1.2, color: "#3b82f6" }}
                     className="text-white/20 transition-all duration-300"
                   >
@@ -110,7 +118,7 @@ const ContactSection = () => {
             </motion.div>
           </div>
 
-          {/* RIGHT: THE FORM (RESPONSIVE SLAB) */}
+          {/* RIGHT: THE FORM */}
           <motion.div 
             style={{ y: formY }}
             className="lg:col-span-7 relative"
@@ -121,7 +129,7 @@ const ContactSection = () => {
                 {!submitted ? (
                   <motion.form 
                     key="form"
-                    ref={formRef} // <--- Attached Ref
+                    ref={formRef}
                     initial={{ opacity: 1 }}
                     exit={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
                     onSubmit={handleSubmit}
@@ -133,7 +141,7 @@ const ContactSection = () => {
                       { id: 3, label: "03 // PROJECT_BRIEF", ph: "Describe your vision...", type: "textarea", name: "message" }
                     ].map((field) => (
                       <div key={field.id} className="relative group/input">
-                        <p className={`text-[8px] md:text-[10px] uppercase tracking-[0.5em] mb-4 transition-all duration-700 font-bold ${activeInput === field.id ? 'text-blue-500 translate-x-2' : 'text-white/10'}`}>
+                        <p className={`text-[8px] md:text-[10px] uppercase tracking-[0.5em] mb-4 transition-all duration-700 font-bold ${activeInput === field.id ? 'text-blue-500 translate-x-2' : 'text-white/30'}`}>
                           {field.label}
                         </p>
                         {field.type === "textarea" ? (
@@ -143,7 +151,7 @@ const ContactSection = () => {
                             onFocus={() => setActiveInput(field.id)} onBlur={() => setActiveInput(null)}
                             placeholder={field.ph}
                             rows="1"
-                            className="w-full bg-transparent text-xl sm:text-2xl md:text-4xl text-white font-bold outline-none placeholder:text-white/5 pb-4 border-b border-white/5 focus:border-blue-500 transition-all duration-1000 uppercase italic tracking-tighter resize-none"
+                            className="w-full bg-transparent text-xl sm:text-2xl md:text-4xl text-white font-bold outline-none placeholder:text-white/70 pb-4 border-b border-white/10 focus:border-blue-500 transition-all duration-1000 uppercase italic tracking-tighter resize-none"
                           />
                         ) : (
                           <input 
@@ -152,7 +160,7 @@ const ContactSection = () => {
                             onFocus={() => setActiveInput(field.id)} onBlur={() => setActiveInput(null)}
                             type={field.type} 
                             placeholder={field.ph}
-                            className="w-full bg-transparent text-xl sm:text-2xl md:text-4xl text-white font-bold outline-none placeholder:text-white/5 pb-4 border-b border-white/5 focus:border-blue-500 transition-all duration-1000 uppercase italic tracking-tighter"
+                            className="w-full bg-transparent text-xl sm:text-2xl md:text-4xl text-white font-bold outline-none placeholder:text-white/70 pb-4 border-b border-white/10 focus:border-blue-500 transition-all duration-1000 uppercase italic tracking-tighter"
                           />
                         )}
                         <motion.div 
@@ -170,11 +178,11 @@ const ContactSection = () => {
                       whileTap={{ scale: 0.98 }}
                       className="group/btn relative w-full flex items-center justify-between py-6 md:py-10 mt-6 rounded-full"
                     >
-                      <span className="text-4xl sm:text-5xl md:text-8xl font-black text-white uppercase italic tracking-tighter transition-all duration-700 group-hover/btn:text-blue-500">
-                        {loading ? "SENDING..." : "SEND_SIGNAL"}
+                      <span className="text-4xl sm:text-5xl md:text-7xl font-black text-white uppercase italic tracking-tighter transition-all duration-700 group-hover/btn:text-blue-500">
+                        {loading ? "SENDING..." : "SEND_Message"}
                       </span>
                       
-                      <div className="w-16 h-16 md:w-32 md:h-32 rounded-full border border-white/20 flex items-center justify-center text-white group-hover/btn:bg-blue-600 group-hover/btn:border-blue-600 group-hover/btn:shadow-[0_0_50px_rgba(59,130,246,0.4)] transition-all duration-700">
+                      <div className="w-16 h-16 md:w-32 md:h-32 rounded-full border border-white/50 flex items-center justify-center text-white group-hover/btn:bg-blue-600 group-hover/btn:border-blue-600 group-hover/btn:shadow-[0_0_50px_rgba(59,130,246,0.4)] transition-all duration-700">
                         <ArrowRight size={32} className="md:w-12 md:h-12 group-hover/btn:translate-x-2 transition-transform duration-500" />
                       </div>
                     </motion.button>

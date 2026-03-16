@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowUp, Instagram, Linkedin, Github, Mail, Copyright } from 'lucide-react';
+import { ArrowUp, Copyright } from 'lucide-react';
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -51,23 +51,39 @@ const Footer = () => {
           <div className="space-y-6">
             <p className="text-blue-500 text-[10px] font-bold uppercase tracking-[0.4em]">Socials</p>
             <ul className="space-y-4 text-sm font-medium text-neutral-500">
-              <li><a href="#" className="hover:text-white transition-colors uppercase italic">LinkedIn</a></li>
-              <li><a href="#" className="hover:text-white transition-colors uppercase italic">GitHub</a></li>
-              <li><a href="#" className="hover:text-white transition-colors uppercase italic">Instagram</a></li>
-              <li><a href="#" className="hover:text-white transition-colors uppercase italic">Dribbble</a></li>
+              <li>
+                <a 
+                  href="https://www.linkedin.com/in/jimstel-jaccob-jasiah-a-b5a464247/" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="hover:text-white transition-colors uppercase italic"
+                >
+                  LinkedIn
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="https://github.com/jimstel" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="hover:text-white transition-colors uppercase italic"
+                >
+                  GitHub
+                </a>
+              </li>
             </ul>
           </div>
 
           <div className="col-span-2 space-y-6">
             <p className="text-blue-500 text-[10px] font-bold uppercase tracking-[0.4em]">Inquiries</p>
-            <a href="mailto:your-email@gmail.com" className="text-2xl md:text-4xl font-black text-white hover:text-blue-500 transition-colors lowercase italic tracking-tighter">
+            <a href="mailto:jimsteljaccobjasiah@gmail.com" className="text-2xl md:text-4xl font-black text-white hover:text-blue-500 transition-colors lowercase italic tracking-tighter">
               jimsteljaccobjasiah@gmail.com
             </a>
             <p className="text-neutral-600 text-xs uppercase tracking-widest">Available for worldwide collaborations.</p>
           </div>
         </div>
 
-        {/* BOTTOM SECTION: THE PAKKA COMMERCIAL LINE DA! */}
+        {/* BOTTOM SECTION */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-6 opacity-40">
           <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-white">
             <Copyright size={12} />
@@ -81,7 +97,7 @@ const Footer = () => {
 
       </div>
 
-      {/* TITAN WATERMARK (Ghost Text) */}
+      {/* TITAN WATERMARK */}
       <div className="absolute bottom-0 left-0 w-full overflow-hidden pointer-events-none select-none opacity-[0.02]">
         <h1 className="text-[25rem] font-black text-white leading-none -mb-20 tracking-tighter uppercase italic">
           JIMSTEL
