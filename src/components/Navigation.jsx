@@ -24,7 +24,6 @@ const Navigation = () => {
         yoyo: true,
         ease: "sine.inOut"
       });
-      // Rotating the circular text da!
       gsap.to(".circular-text", { rotation: 360, duration: 20, repeat: -1, ease: "none" });
       gsap.to(".ring-inner", { rotation: 360, duration: 8, repeat: -1, ease: "none" });
       gsap.to(".ring-outer", { rotation: -360, duration: 15, repeat: -1, ease: "none" });
@@ -36,7 +35,6 @@ const Navigation = () => {
     };
   }, [isMobile]);
 
-  // Macha: Angles spread to 38-degree steps to prevent label overlap on mobile da!
   const navItems = [
     { id: '01', name: 'Home', icon: <Home size={18} />, href: '#home', angle: -90 },
     { id: '02', name: 'About', icon: <Cpu size={18} />, href: '#about', angle: -128 },
@@ -68,7 +66,6 @@ const Navigation = () => {
                 animate={{ 
                   scale: 1, 
                   opacity: 1, 
-                  // Macha: RADIUS (100) and OFFSET (-90) tuned to keep Pixel 7 views perfect!
                   x: (Math.cos(item.angle * (Math.PI / 180)) * (isMobile ? 100 : 135)) - (isMobile ? 90 : 110), 
                   y: (Math.sin(item.angle * (Math.PI / 180)) * (isMobile ? 100 : 135)) - (isMobile ? 90 : 110) 
                 }}
@@ -76,9 +73,10 @@ const Navigation = () => {
                 transition={{ type: "spring", stiffness: 300, damping: 25, delay: i * 0.04 }}
                 className="absolute group flex items-center justify-center outline-none"
               >
-                <div className={`absolute -top-14 transition-all duration-300 transform flex flex-col items-center pointer-events-none ${isMobile ? 'opacity-100' : 'opacity-0 group-hover:opacity-100 group-hover:-translate-y-2'}`}>
+                {/* MACHA: Labels hidden on mobile (hidden), shown only on desktop hover (md:flex md:opacity-0 group-hover:opacity-100) */}
+                <div className="absolute -top-14 transition-all duration-300 transform hidden md:flex flex-col items-center pointer-events-none md:opacity-0 group-hover:opacity-100 group-hover:-translate-y-2">
                    <span className="text-[6px] text-blue-400 font-bold tracking-[0.4em] mb-1">UNIT_{item.id}</span>
-                   <span className="bg-blue-600/90 text-white text-[8px] md:text-[9px] px-3 py-1 rounded-sm backdrop-blur-md border border-white/20 uppercase tracking-widest whitespace-nowrap shadow-2xl">
+                   <span className="bg-blue-600/90 text-white text-[9px] px-3 py-1 rounded-sm backdrop-blur-md border border-white/20 uppercase tracking-widest whitespace-nowrap shadow-2xl">
                      {item.name}
                    </span>
                 </div>
@@ -103,7 +101,6 @@ const Navigation = () => {
         onClick={() => setIsOpen(!isOpen)}
         className="relative w-20 h-20 md:w-24 md:h-24 flex items-center justify-center group outline-none"
       >
-        {/* --- CIRCULAR TEXT HUD DA! --- */}
         <div className={`circular-text absolute inset-[-30px] md:inset-[-40px] pointer-events-none transition-opacity duration-500 ${isHovered || isOpen ? 'opacity-100' : 'opacity-20'}`}>
           <svg viewBox="0 0 100 100" className="w-full h-full">
             <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="none" />
