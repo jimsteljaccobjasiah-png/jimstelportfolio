@@ -12,11 +12,11 @@ const AboutSection = () => {
   const marqueeRef = useRef(null);
   
   const aboutText = [
-    "I’m Jims, currently pursuing my Master’s in Computer Science Engineering, but my real education happens in every project I take on experimenting, rebuilding, testing and learning how to create things that actually matter.",
-    "I use AI-powered tools and modern development techniques to build powerful, scalable digital products.",
-    "Creating systems that are practical and meaningful. Whether it's a web application, an automation tool, or a problem-solving script, I focus on building solutions that are simple, reliable, and useful.",
-    "I’m not here to compete with others. I’m here to build, learn, and create work that speaks for itself.",
-    "And if you have an idea worth building, I’d be glad to be part of that journey."
+     "I'm Jims, pursuing Master's in Computer Science..",
+    "I build scalable products using modern AI tools.",
+    "Creating Practical systems, Web Apps, AI Powered custom softwares.",
+    "I focus on learning, building, and growing consistently.",
+    "Open to collaborate on ideas worth building."
   ];
 
   useEffect(() => {

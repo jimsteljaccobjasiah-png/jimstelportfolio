@@ -97,8 +97,8 @@ const NameNav = () => {
         </div>
         
         <div className="hidden sm:flex relative flex-col items-center py-12 h-full justify-between">
-          <div className="rotate-[-90deg] whitespace-nowrap text-[6px] md:text-[8px] tracking-[1em] text-white uppercase font-black opacity-20">SYSTEM_AUTHENTICATED</div>
-          <div className="rotate-[-90deg] whitespace-nowrap text-[6px] md:text-[8px] tracking-[0.5em] text-blue-500 uppercase font-bold italic opacity-30">NAGERCOIL_NODE_v3.16</div>
+          <div className="rotate-[-90deg] whitespace-nowrap text-[6px] md:text-[8px] tracking-[1em] text-white uppercase font-black opacity-20"></div>
+          <div className="rotate-[-90deg] whitespace-nowrap text-[6px] md:text-[8px] tracking-[0.5em] text-blue-500 uppercase font-bold italic opacity-30"></div>
         </div>
       </div>
     </>
