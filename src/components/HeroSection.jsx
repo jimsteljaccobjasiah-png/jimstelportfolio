@@ -15,7 +15,9 @@ const HeroSection = () => {
     ScrollTrigger.config({ ignoreMobileResize: true });
 
     let ctx = gsap.context(() => {
+      // Set initial state for icons
       gsap.set('.hero-line', { opacity: 0, y: 40 });
+      gsap.set('.social-icon', { opacity: 0, x: 20 });
       gsap.set(imageRef.current, { opacity: 1 });
 
       const tl = gsap.timeline({
@@ -43,7 +45,15 @@ const HeroSection = () => {
         stagger: 0.5,
         duration: 3,
         ease: "power2.out",
-      }, "<0.1");
+      }, "<0.1")
+      // Animate Social Icons right after the text
+      .to('.social-icon', {
+        opacity: 1,
+        x: 0,
+        stagger: 0.2,
+        duration: 1.5,
+        ease: "power2.out"
+      }, "-=1"); // Starts slightly before the last text line finishes
 
     }, sectionRef);
 
@@ -66,7 +76,7 @@ const HeroSection = () => {
         <img 
           src={heroImage} 
           alt="Jims"
-          className="h-full w-full object-cover object-top md:object-center pointer-events-none"
+          className="h-full w-full object-cover object-[center_20%] md:object-center pointer-events-none"
           loading="eager" 
         />
         <div className="absolute inset-0 bg-black/20" />
@@ -87,31 +97,33 @@ const HeroSection = () => {
         </div>
       </div>
       
-      {/* SOCIAL LINKS INTEGRATED DA */}
-      <div className="absolute bottom-10 left-1/2 z-20 w-full -translate-x-1/2 px-6">
-        <div className="mx-auto flex justify-center gap-10">
+      {/* SOCIAL LINKS - CENTER-RIGHT WITH ANIMATION CLASSES */}
+      <div className="absolute top-1/2 -translate-y-1/2 right-6 md:right-12 z-20">
+        <div className="flex flex-col items-center gap-8">
+          <div className="social-icon w-[1px] h-12 bg-gradient-to-b from-blue-500 to-transparent opacity-50" />
           <a 
             href="https://github.com/jimstel" 
             target="_blank" 
             rel="noopener noreferrer" 
-            className="text-neutral-500 hover:text-white transition-all"
+            className="social-icon text-neutral-500 hover:text-white transition-all hover:scale-110 active:scale-95"
           >
-            <Github className="h-6 w-6" />
+            <Github className="h-5 w-5 md:h-6 md:w-6" />
           </a>
           <a 
             href="https://www.linkedin.com/in/jimstel-jaccob-jasiah-a-b5a464247/" 
             target="_blank" 
             rel="noopener noreferrer" 
-            className="text-neutral-500 hover:text-white transition-all"
+            className="social-icon text-neutral-500 hover:text-white transition-all hover:scale-110 active:scale-95"
           >
-            <Linkedin className="h-6 w-6" />
+            <Linkedin className="h-5 w-5 md:h-6 md:w-6" />
           </a>
           <a 
             href="mailto:jimsteljaccobjasiah@gmail.com" 
-            className="text-neutral-500 hover:text-white transition-all"
+            className="social-icon text-neutral-500 hover:text-white transition-all hover:scale-110 active:scale-95"
           >
-            <Mail className="h-6 w-6" />
+            <Mail className="h-5 w-5 md:h-6 md:w-6" />
           </a>
+          <div className="social-icon w-[1px] h-12 bg-gradient-to-t from-blue-500 to-transparent opacity-50" />
         </div>
       </div>
     </section>
