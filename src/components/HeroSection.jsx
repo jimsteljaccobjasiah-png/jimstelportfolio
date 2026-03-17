@@ -83,17 +83,17 @@ const HeroSection = () => {
       </div>
 
       <div ref={contentRef} className="relative z-10 flex h-[100dvh] w-full items-center justify-center px-6 py-20">
-        <div className="font-extrabold leading-[1.2] md:leading-[1.1] text-center space-y-2 md:space-y-3 max-w-6xl">
-            <div className="hero-line text-[clamp(2rem,7vw,5.5rem)] text-white will-change-transform">I turn</div>
-            <div className="hero-line text-[clamp(2rem,7vw,5.5rem)] will-change-transform" style={textGradient}>concepts</div>
-            <div className="hero-line text-[clamp(2rem,7vw,5.5rem)] text-white will-change-transform">into</div>
-            <div className="hero-line text-[clamp(2rem,7vw,5.5rem)] text-white will-change-transform">
+        <div className="font-extrabold leading-[1.2] md:leading-[1.1] text-center space-y-2 md:space-y-3 max-w-3xl">
+            <div className="hero-line text-[clamp(2rem,7vw,5.2rem)] text-white will-change-transform">I turn</div>
+            <div className="hero-line text-[clamp(2rem,7vw,5.2rem)] will-change-transform" style={textGradient}>concepts</div>
+            <div className="hero-line text-[clamp(2rem,7vw,5.2rem)] text-white will-change-transform">into</div>
+            <div className="hero-line text-[clamp(2rem,7vw,5.2rem)] text-white will-change-transform">
               <span style={textGradient}>code</span> that
             </div>
             <div className="hero-line text-[clamp(2rem,7vw,5.5rem)] text-white will-change-transform">
               <span className="whitespace-nowrap">solves problems</span>
             </div>
-            <div className="hero-line text-[clamp(2rem,7vw,5.5rem)] text-white will-change-transform">efficiently.</div>
+            <div className="hero-line text-[clamp(2rem,7vw,5.2rem)] text-white will-change-transform">efficiently.</div>
         </div>
       </div>
       
